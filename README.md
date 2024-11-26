@@ -45,11 +45,11 @@ We create sub-test sets sampled from the RefCOCO, RefCOCO+, and RefCOCOg dataset
 - pretrained_models: Store the downloaded pretrained models.
 - data: Store the data used for testing. The storage of each data set is in a.pth file.
 - configs: config file.
+- base_models, vision_models.py, vision_processes.py: API of vision models.
 - prompts: prompts.
+- useful_lists, utils.py: util functions.
 - main.ipynb: Code to run EAGR.
-- vision_models.py, vision_processes.py, utils.py: API of vision models.
 - api.key: OpenAI key
-
 
 ## How to run
 
