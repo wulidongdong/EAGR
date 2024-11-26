@@ -12,8 +12,9 @@ We propose an Error-Aware Generative Reasoning (EAGR) method for zero-shot visua
 conda env create -f EAGR.yml
 ```
 
-### Step 2: Install GLIP
+### Step 2: Install GLIP and MiDas
 ```
+git clone https://github.com/isl-org/MiDaS.git
 git clone https://github.com/sachit-menon/GLIP.git
 cd GLIP
 python setup.py clean --all build develop --user
@@ -44,6 +45,7 @@ We create sub-test sets sampled from the RefCOCO, RefCOCO+, and RefCOCOg dataset
 - pretrained_models: Store the downloaded pretrained models.
 - data: Store the data used for testing. The storage of each data set is in a.pth file.
 - configs: config file.
+- prompts: prompts.
 - main.ipynb: Code to run EAGR.
 - vision_models.py, vision_processes.py, utils.py: API of vision models.
 - api.key: OpenAI key
