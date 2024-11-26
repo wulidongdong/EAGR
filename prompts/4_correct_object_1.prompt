@@ -1,0 +1,34 @@
+I will provide a referring expression, an object name mentioned in the expression.
+You should generating some potential object names.
+
+Tips:
+- Potential object name can be synonym. For example:
+# object name: car
+```python
+potential_object_names = ['car', 'motorcar']
+```
+- Potential object name can be hypernym or hyponym. For example:
+# object name: boy
+```python
+potential_object_names = ['boy', 'child']
+```
+- DON'T generate more than 2 potential object names.
+
+EXAMPLE
+
+(Me)
+input:
+referring_expression = 'right cat'
+object_name = 'cat'
+
+(You)
+```python
+potential_object_names = ['cat', 'feline']
+```
+
+Now, let's begin. ONLY generate executable python code. Please fill in the final result in the variable potential_object_names.
+================below is input==================
+input:
+referring_expression = "REFERRING_EXPRESSION"
+object_name = "OBJECT_CATEGORY"
+

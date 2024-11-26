@@ -1,0 +1,10 @@
+# fix_code
+RETURN_VARIABLE = object_detection("OBJECT_CATEGORY")
+try:
+    min_num = object_analysis(object_name="OBJECT_CATEGORY")
+except Exception as e:
+    print('min_num error', e)
+    min_num = 1
+
+if len(RETURN_VARIABLE) < min_num:
+    RETURN_VARIABLE = object_search(object_name="OBJECT_CATEGORY", object_list=RETURN_VARIABLE, variable_name="RETURN_VARIABLE", missing_num=min_num-len(RETURN_VARIABLE))

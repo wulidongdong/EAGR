@@ -1,0 +1,22 @@
+I will provide a referring expression.
+You should find out the name of the target object in the referring expression.
+Tips:
+- The target object is not related to the category of object, but only to the semantic meaning of the referring expression. For example. In "man with a pen", "man" is the target object. In "pen holding by a man", "pen" is the target object.
+
+EXAMPLE
+
+(Me)
+input:
+referring_expression = 'the third car from left beside a tree'
+
+(You)
+Thought: The referring expression aims to indentify a specific 'car', so the name of target object is 'car'.
+Code:
+```python
+target_object_name = 'car'
+```
+
+Now, let's begin. Please fill in the name of target object in variable target_object_name
+================below is input==================
+input:
+referring_expression = "REFERRING_EXPRESSION"

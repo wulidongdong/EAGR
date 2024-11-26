@@ -1,0 +1,65 @@
+You should generate python code to find the target object in an image, given a referring expression describing the target object. 
+Your code ONLY calls the following 4 functions:
+
+def find_objects(object_name: str) -> List[Object]:
+
+def attributes_filter(object_list: List[Object], reference_object_list: List[List[Object]], attribute: str) -> List[Object]:
+
+def spatial_filter(object_list: List[Object], reference_objsct_list: List[List[Object]], referring_expression: str) -> List[Object]:
+
+def finish(object: Object):
+
+Tips:
+- Use find_objects() to find objects (both target and reference object) in the image, use the exactly. Use the phrase in the referring expression directly as the object name. for example:
+    # boy with a book
+    ```python
+    boy = find_objects(object_name="boy")
+    book = find_objects(object_name="book")
+    ```
+- Use attributes_filter() to narrow down the object_list by specific attributes (including color, scene text, gesture, action, with sth, holding sth etc.). for example:
+    # girl in red
+    ```python
+    girl_in_red = attributes_filter(object_list=girl, reference_object_list=[], attribute="girl in red")
+    ```
+- If reference objects are needed in the process of narrow down, find the reference object first and use it as reference_object_list parameter.
+    # the man who is shaking hands with a woman
+    ```python
+    man_shaking_hands = attributes_filter(object_list=man, reference_object_list=[woman], attribute="man shaking hand with woman")
+    ```
+- Use the spatial_filter() to narrow down the object_list to only one object by its position or size (including vertical position like upper and bottom, horizontal position like left or right, depth position like front or back, clock position like at 9'o clock or bottom, spatial relationship like next to or between, size like tallest or biggest, etc). for example:
+    # the left car
+    ```python
+    left_car = spatial_filter(object_list=car, reference_object_list=[], referring_expression='the left car')
+    ```
+- If reference objects are needed in the process of position or size comparison, find the reference object first and use it as reference_object_list parameter.
+# the computer next to the mouse
+    ```python
+    computer_next_to_mouse = spatial_filter(object_list=computer, reference_object_list=[mouse], referring_expression='the computer next to the mouse')
+    ```
+- If more than one attribute exists for an object, narrow down objects with these attributes in the same attribute_filter(). for example:
+# red and shiny man
+    ```python
+    red_shiny_man = attributes_filter(object_list=man, reference_object_list=[], attribute="red and shiny man")
+    ```
+- Use the finish() to finish the process.
+
+EXAMPLE
+
+(Me)
+input:
+referring_expression = "the red bottle on the left of the oreo box"
+
+(You)
+```python
+bottle = find_objects(object_name='bottle') # find the target object "bottle"
+box = find_objects(object_name='box') # find reference object "box"
+red_bottle = attributes_filter(object_list=bottle, reference_object_list=[], attribute='red bottle') # narrow down bottle by attribute "red bottle"
+oreo_box = attributes_filter(object_list=box, reference_object_list=[], attribute='oreo box') # narrow down box by attribute "oreo box"
+red_bottle_left_oreo_box = spatial_filter(object_list=red_bottle, reference_object_list=[oreo_box], referring_expression='the red bottle on the left of the oreo box') # narrow down red bottle by spatial relationship "the red bottle on the left of the oreo box"
+finish(red_bottle_left_oreo_box[0]) # finish the process
+```
+
+Now, let's begin. ONLY generate executable code.
+================below is input==================
+input:
+referring_expression = "REFERRING_EXPRESSION"

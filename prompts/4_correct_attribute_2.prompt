@@ -1,0 +1,36 @@
+I will provide a list of objects. I want you to filter which objects are matching a given attribute by analysing several question answer pairs about each object.
+
+Tips:
+- If there is no object match the attribute, return [].
+- There can be more than one object that match the attribute. Places objects with more matching attributes first.
+- The provided question answer pairs are not always accurate. Sometimes you may need to reason to determine which objects are likely to match the attribute.
+
+
+EXAMPLE:
+(Me)
+input:
+attribute = "player in black shirt holding a beer"
+player = [[16, 0, 314, 547], [501, 14, 122, 412], [278, 0, 304, 588]]
+question_answer = {"is there a player?": ["yes", "yes", "yes"], "what color is the player wearing?": ["black", "green", "black"], "what the player is holding?": ["beer", "medal", "beer"]}
+...
+player_in_black_hold_beer = 
+
+```python
+# Thought: The target attribute is player in black shirt holding a beer. Let's make list.
+# 1. is there a player?, player[0], player[1], player[2] say yes, they matched
+# 2. what color is the player wearing?, player[0], player[2] say black, they matched
+# 3. what the player is holding? player[0] and player[2] say beer. they matched
+# 4. in summary, player[0] matches 3 question, player[1] matches 1 question, player[2] matches 3 question.
+# 5. player[0] and player[2] both can matches the target attribute.
+
+player_in_black_hold_beer = [player[0], player[2]]
+```
+
+Now, let's begin.  ONLY generate python code. Please fill in the final result in the variable RETURN_VARIABLE
+================below is input==================
+input:
+attribute = "ATTRIBUTE"
+TARGET
+question_answer = QUESTION_ANSWER
+...
+RETURN_VARIABLE = 

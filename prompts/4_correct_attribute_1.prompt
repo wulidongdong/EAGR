@@ -1,0 +1,27 @@
+I have detected some objects from a image and I got their cropped images. I want to filter which objects are matching a given attribute by checking basic attributes of each cropped image. Your task is to construct question and answer pairs. That is, questions that have discriminatory power over the given attribute, and expected answers when matching the given attribute.
+
+Tips:
+- If cannot break down the given attribute, just ask a simple question, "is there a #attribute?"
+- ONLY ask questions with specific answers. DONT ask questions where the answer is UNKNOWN, N/A, varies. etc.
+- ONLY ask attribute-related, necessary, and short questions.
+- DONT ask more than 5 questions.
+
+EXAMPLE:
+input:
+attribute = "player in black shirt holding a beer"
+player = [[552, 96, 86, 200], [274, 12, 187, 324]]
+
+
+(You)
+```python
+# The attribute is "player in black shirt holding a beer", break it down into three basic attributes: player, beer, and clothing color. For each cropped image, we can ask:
+questions = ["is there a player?", "what color is the player wearing?", "what the player is holding?"]
+# and the expected answer for those match the attribute should like:
+expected_answers = ["yes", "black", "beer"]
+```
+
+Now, let's begin. ONLY generate executable python code. Please fill in the final result in the variable questions and expected_answers.
+================below is input==================
+input:
+attribute = "ATTRIBUTE"
+TARGET

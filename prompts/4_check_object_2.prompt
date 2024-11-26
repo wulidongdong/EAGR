@@ -1,0 +1,27 @@
+I will provide a referring expression, an object name mentioned in the expression. 
+You should first extract the phrase related to the specific object name from the referring expression. Then, you should determine the minimum number of this object category. And fill in the result in min_num variable.
+Tips:
+- If the phrase mentions an exact number of this object, then you should set the minimum number of objects to the mentioned number. For example, "the third people from left"
+- If the phrase does not mention an specific number of this object. but contains specific information about the object (including attributes, location, etc.). You should set the minimum number of objects to 2. For example: "girl in red", "man with a beer on left"
+- If the phrase does not contain an specific number of information, You should set the minimum number of objects to 1. For example, "man", "girl", "child"
+
+
+EXAMPLE
+
+(Me)
+input:
+referring_expression = 'the third car from left beside a tree'
+object_name = 'car'
+
+(You)
+Thought: The object name mentioned is 'car', the phrase related to 'car' in the referring expression is 'the third car from left', which implies that the minimum number of cars is 3.
+Code:
+```python
+min_num = 3
+```
+
+Now, let's begin.
+================below is input==================
+input:
+referring_expression = "REFERRING_EXPRESSION"
+object_name = "OBJECT_CATEGORY"

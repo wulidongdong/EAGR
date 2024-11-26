@@ -1,0 +1,52 @@
+I will provide a list of object bounding boxes [[x,y,w,h]]. Your should generate code to compare the positions of multiple objects and find the only target object satisfies the referring expression. The result of your generated code should be of the form List[List], i.e., [[x,y,w,h]]. You should ONLY write code for coordinate operations or call the function compute_depth() based on these bounding boxes, but not compute the results.
+
+def compute_depth(object_bbox):
+    '''
+    Args:
+        object_bbox: List, an object bounding box [x,y,w,h] that needs to compute depth.
+    Returns:
+        float, a depth score of the input object, with smaller numbers indicating closer objects.
+    '''
+
+Tips:
+- Horizontal comparison (left, rightmost) is related to x-coordinate.
+- Vertical comparison (upper, bottom) is related to y-coordinate. upper and bottom indicates smaller and bigger y coordinate respectively.
+- If the comparison coordinate is not clear (for example, "middle man" can both refer to horizontal and vertical middle man). Select one of the x or y coordinates as the sorting key by looking at the bounding box layout.
+- Use both x and y coordinates to handle some position combination (upper left, bottom right)
+- Size comparison (biggest, taller) is related to w and h coordinates.
+- Depth comparison (front, back, close, far) is ONLY related to the depth of the object, use compute_depth() function to calculate depth.
+- Clock position (9 o clock, 100 i.e. 1:00) is ONLY related to common direction words, but not to angle calculation (i.e., 12 o clock is up, 6 o clock is down, 9 o clock is left, 3 o clock is right, 1 and 2 o clock are upper right). For example,
+# referring_expression = 'cat at 3 o clock' or referring_expression = 'cat at 300'
+```python
+referring_expression = 'cat on the far right' # Because 3 o'clock is associated with the right side
+cat.sort(key=lambda x: x[0] + x[2])
+cat_at_300 = cat[-1]
+```
+
+
+EXAMPLE
+
+(Me)
+input:
+referring_expression = 'the second red tall bottle from left'
+red_tall_bottle = [[467.65, 94.96, 79.69, 202.77], [51.4, 118.32, 82.25, 173.41], [142.41, 102.35, 80.10, 189.92]]
+...
+red_tall_bottle_second_from_left = 
+
+(You)
+Thought: There are currently three red tall bottles. The left side is related to x-coordinate, so we can use x-coordinate of the bounding boxes to determine the order of red tall bottles, and then get the second ranked one.
+Code:
+```python
+red_tall_bottle.sort(key=lambda x: x[0])
+red_tall_bottle_second_from_left = red_tall_bottle[1]
+red_tall_bottle_second_from_left = [red_tall_bottle_second_from_left]
+```
+
+
+Now, let's begin. Please fill in the final result in the variable RETURN_VARIABLE
+================below is input==================
+input:
+referring_expression = 'REFERRING_EXPRESSION'
+TARGET
+...
+RETURN_VARIABLE = 

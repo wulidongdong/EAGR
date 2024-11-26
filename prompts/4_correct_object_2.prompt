@@ -1,0 +1,34 @@
+I will provide a referring expression, an object name mentioned in the expression, and an object detection result of this object name.
+You should choose some search areas to find the missing objects.
+
+Tips:
+- You can choose multiple search areas from eight areas: ['left_of_object', 'above_of_object', 'right_of_object', 'below_of_object', 'left_of_image', 'top_of_image', 'right_of_image', 'bottom_of_image']
+- If there is no detected object, then you can only choose from the last four options.
+
+
+EXAMPLE
+
+(Me)
+input:
+referring_expression = 'right bottom chair'
+object_name = 'chair'
+num_missing_chair = 1
+chair = [[0, 114, 316, 303]]
+
+
+(You)
+Thought: There is one detected chair, and we still missing 1 chair. According to the referring expression. We are looking for a right bottom chair, we can choose the search area as:
+Code:
+```python
+search_area_list=['right_of_image', 'bottom_of_image', 'right_of_object', 'below_of_object]
+```
+
+Now, let's begin. ONLY generate executable python code. Please fill in the final result in the variable search_area_list
+================below is input==================
+input:
+referring_expression = "REFERRING_EXPRESSION"
+object_name = "OBJECT_CATEGORY"
+num_missing_RETURN_VARIABLE = MISSING_NUMBER
+RETURN_VARIABLE = DETECTION_RESULT
+
+

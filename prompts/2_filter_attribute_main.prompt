@@ -1,0 +1,9 @@
+# fix_code
+RETURN_VARIABLE = attribute_recognition_blip(object_list=TARGET, reference_object_list=REFERENCE, attribute="ATTRIBUTE", margin=[0,0,0,0])
+if len(RETURN_VARIABLE) == 0:
+    questions = ask_questions(object_list=TARGET, attribute="ATTRIBUTE")
+    question_answer = VQA(object_list=TARGET, questions=questions, reference_object_list=REFERENCE, margin=[0,0,0,0])
+    RETURN_VARIABLE = analysis_answer(object_list=TARGET, attribute="ATTRIBUTE", question_answer=question_answer)
+
+global image
+RETURN_VARIABLE = refine_attribute_return(image, RETURN_VARIABLE, "ATTRIBUTE", TARGET)

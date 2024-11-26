@@ -1,0 +1,48 @@
+I will provide multiple bounding boxes [[x,y,w,h],[x,y,w,h]] for target and reference objects. You should generate code to reason over object spatial relationships, and then rank and select the target objects that satisfies the given reference expression. The result of your generated code should be of the form List[List]. You should ONLY write code for coordinate operations based on these bounding boxes or call the function compute_depth(), but not compute the results. The code should be executable and cannot use undefined variable names.
+
+def compute_depth(object_bbox):
+    '''
+    Args:
+        object_bbox: List, an object bounding box [x,y,w,h] that needs to compute depth.
+    Returns:
+        float, a depth score of the input object.
+    '''
+
+Tips:
+- Horizontal comparison (left, right) is related to x-coordinate
+- Vertical comparison (upper, bottom) is related to y-coordinate. upper and bottom indicates smaller and bigger y coordinate respectively.
+- Use both x and y coordinates to handle some position combination (upper left, bottom right)
+- Distance comparison (next to, far from) is related to both x and y coordinates. Since it is hard determine how close is next to, just rank the distance and return the object with smallest or biggest distance.
+- Size comparison (biggest, taller) is related to w and h coordinates.
+- Depth comparison (front, back) is ONLY related to the depth of the object, use compute_depth() function to calculate depth.
+
+
+EXAMPLE
+
+(Me)
+input:
+referring_expression = 'the bottle on the left of the oreo box'
+bottle = [[313, 229, 50, 159], [127, 240, 55, 95]]
+oreo_box = [[366, 336, 45, 47]]
+...
+bottle_left_oreo_box = 
+
+(You)
+Thought: left is related to x-coordinates, we can perform a for loop on multiple bottles and then use x-coordinate of bounding boxes to determine which bottle is to the left of the Oreo box.
+Code:
+```python
+bottle_left_oreo_box = []
+for bottle_i in bottle:
+    if bottle_i[0] < oreo_box[0][0]:
+        bottle_left_oreo_box.append(bottle_i)
+if len(bottle_left_oreo_box) == 0:
+    bottle_left_oreo_box = [bottle[0]] # just make a guess
+```
+
+Now, let's begin. Please fill in the final result in the RETURN_VARIABLE
+================below is input==================
+input:
+referring_expression = "REFERRING_EXPRESSION"
+TARGET_AND_REFERENCE
+...
+RETURN_VARIABLE = 
