@@ -37,9 +37,13 @@ gdown "https://drive.google.com/u/0/uc?id=1bv6_pZOsXW53EhlwU0ZgSk03uzFI61pN" -O 
 ## File Structure
 
 pretrained_models: Store the downloaded pretrained models.
+
 data: Store the data used for testing. The storage of each data set is in a.pth file.
+
 main.ipynb: Code to run EAGR.
+
 vision_models.py, vision_processes.py: API of vision models.
+
 api.key: OpenAI key
 
 ## How to run
