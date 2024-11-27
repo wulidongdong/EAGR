@@ -31,6 +31,10 @@ pip install numpy==1.23.5
 
 ### Step 3: Download models (GLIP, MiDaS, and X-VLM)
 ```
+mkdir -p ./pretrained_models/GLIP/checkpoints
+mkdir -p ./pretrained_models/GLIP/configs
+mkdir -p ./pretrained_models/xvlm
+mkdir -p ./pretrained_models/depth
 wget -P ./pretrained_models/GLIP/checkpoints https://huggingface.co/GLIPModel/GLIP/resolve/main/glip_large_model.pth
 wget -P ./pretrained_models/GLIP/configs https://raw.githubusercontent.com/microsoft/GLIP/main/configs/pretrain/glip_Swin_L.yaml
 wget -P ./pretrained_models/depth https://github.com/isl-org/MiDaS/releases/download/v3/dpt_large_384.pt
