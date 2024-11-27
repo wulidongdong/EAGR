@@ -60,7 +60,7 @@ Step 2: Follow the main.ipynb.
 ## Citation
 If you find this resource helpful, please cite our paper and share our work. Thank you.
 ```bibtex
-@article{tmm/Bu2024/scenetext,
+@article{tmm/Bu2024/eagr,
   author={Yuqi Bu and Xin Wu and Yi Cai and Qiong Liu and Tao Wang and Qingbao Huang},
   title={Error-Aware Generative Reasoning for Zero-Shot Visual Grounding},
   journal={{IEEE} Transactions on Multimedia},
